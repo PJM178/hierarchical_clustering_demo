@@ -1,1 +1,1 @@
-# hierarchical_clustering_demo
+# Hierarchical clustering demo
