@@ -6,9 +6,11 @@
 library(NbClust)
 library(scales)
 library(dendextend)
+library(factoextra)
+library(gridExtra)
 
 rm(list=ls())
-setwd("C:/Users/petri/Desktop/GitHub töitä/R/Hierarchical_clustering")
+setwd("C:/Users/petri/Desktop/GitHub tÃ¶itÃ¤/R/Hierarchical_clustering")
 
 # Data loading and pre-processing
 
@@ -55,6 +57,11 @@ plot(2:20, silhouette_method$All.index, type="o",col="blue", xlab="number of bra
 plot(2:20, gap_method$All.index, type="o",col="blue", xlab="number of branches", ylab="Gap Value", main="GAP Statistic")
 plot(2:20, ch_method$All.index, type="o",col="blue", xlab="number of branches", ylab="CH Value", main="Calinski-Harabasz Index")
 
+p1 = fviz_nbclust(data, hcut, k.max = 20, nstart=100, method = "silhouette")
+p2 = fviz_nbclust(data, hcut, k.max = 20, nstart=100, method = "wss")
+p3 = fviz_nbclust(data, hcut, k.max = 20, nstart=100, method = "gap_stat")
+grid.arrange(p1,p2,p3, ncol = 3)
+
 dend2 = cut(dend, h = 260)
 par(mfrow=c(2,1))
 plot(dend2$upper)
@@ -70,7 +77,11 @@ memberclasses = matrix(c(classes[1:50,1], clustermember), nrow=50, ncol=2)
 
 # Visualizing the final tree
 
-d1=color_branches(dend,k=12, groupLabels = TRUE)
+par(mfrow=c(2,1))
+d1=color_branches(dend,k=25, groupLabels = TRUE)
+d2=color_branches(dend,k=5, groupLabels = TRUE)
+plot(d2)
 plot(d1)
+par(mfrow=c(1,1))
 
 ### EOF ###
