@@ -6,7 +6,7 @@ This is a demo of hierarchical clustering using R. The motivation behind this an
 
 Hierarchical clustering is a distance based method to partion the data. It can either be done top down or bottom up where you start with either one cluster with all the observations or with as many clusters as there are observations, respectively. Distance is usually measured as euclidean distance. Methods to partion the data are complete linkage, single linkage or average linkage. In this analysis top down (agglomerative) method is used along with complete linkage - after the shortest distance pair is formed, the distance between it and the remaining points in the distance matrix is determined by the max of pairwise distances between the remaining points in the matrix and the individual points in the cluster. It tends to produce more smaller clusters.
 
-The dataset contains 85 features, such as "big", "small", and "hairless", of 50 animals. The data is continous in nature though there is also a binary version available. It contains no missing values.
+The dataset contains 85 features, such as "big", "small", and "hairless", of 50 animals. The data is continous in nature though there is also a binary version available. It contains no missing values. Predicates.txt contains the full feature list, classes.txt containt the names of the observations, and predicate-matrix-continuous.txt contains the numerical data associated with the classes.
 
 ## Results
 
